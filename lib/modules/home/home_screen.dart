@@ -93,7 +93,6 @@ class HomeScreen extends GetView<HomeController> {
                   child: Column(
                 children: [
                   TextFormField(
-                    
                     controller: controller.ageController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -114,24 +113,26 @@ class HomeScreen extends GetView<HomeController> {
                     height: 5.h,
                   ),
                   TextFormField(
-                    
                     controller: controller.weightController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
                         hintText: "Weight"),
                   ),
-                  
                 ],
               )),
-             // Obx(()=>Text(controller.ageController.text))
-            // Text(controller.ageController.text)
-            SizedBox(
-              height: 10.h,
-            ),
-            ElevatedButton(onPressed: () {
-              
-            }, child: Center(child: Text("Hesapla"),))
+              // Obx(()=>Text(controller.ageController.text))
+              // Text(controller.ageController.text)
+              SizedBox(
+                height: 10.h,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    controller.setData();
+                  },
+                  child: Center(
+                    child: Text("Hesapla"),
+                  ))
             ],
           ),
         ));
