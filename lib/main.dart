@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(
       builder: (context, Orientation, ScreenType) {
-        return const GetMaterialApp(
+        return  GetMaterialApp(
           debugShowCheckedModeBanner: false, 
-          home: HomeScreen(),
+         // home: HomeScreen(),
           getPages: AppPages.routes,
           initialRoute:Routes.SPLASH ,
           enableLog: true,
