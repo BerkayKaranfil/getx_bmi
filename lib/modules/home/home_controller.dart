@@ -20,9 +20,6 @@ class HomeController extends GetxController {
     genderIndex.value = genderType;
     print(genderIndex);
   }
-
-  
-
   //Gender Button//
 
   void bmiCalculator() {
