@@ -10,13 +10,17 @@ class DetailScreen extends GetView<DetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Column(
         children: [
           Center(
             child: Text("DetailScreen", style: TextStyle(fontSize: 40),),
           ),
           Center(
-            child: Text("${controller.data}", style: TextStyle(fontSize: 40),),
+            child: Text(controller.bmi!, style: TextStyle(fontSize: 40),),
+          ),
+          Center(
+            child: Text("${controller.bmiStatus}", style: TextStyle(fontSize: 40),),
           ),
         ],
       ),

@@ -3,24 +3,53 @@ import 'package:get/get.dart';
 import 'package:getx_bmi/routes/app_pages.dart';
 
 class HomeController extends GetxController {
-  TextEditingController ageController = TextEditingController();
-  TextEditingController heightController = TextEditingController();
-  TextEditingController weightController = TextEditingController();
+  
+  
+  var height = 0.0.obs;
+  var weight = 0.0.obs;
+  var age = 0.0.obs;
+  var bmi = "".obs;
+  var bmiStatus = "";
+  var result = 0.0;
 
-  RxInt gender_index = 0.obs;
-  RxString gender = "".obs;
+  //Gender Button//
+  List<String> genderList = ["Male", "Female", "Other"];
+  RxInt genderIndex = 0.obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-    print("HomeScreen Açıldı");
+  chanceGender(int genderType){
+    genderIndex = genderType.obs;
+    print(genderIndex);
+  }
+  //Gender Button//
+
+  void bmiCalculator() {
+    result = weight / ((height / 100) * (height / 100));
+    // print(result);
+    if (result < 18.5) {
+      bmi.value = result.toString();
+      bmiStatus = "You are underweight.";
+    } else if (result >= 18.5 && result <= 24.9) {
+      bmi.value = result.toString();
+      bmiStatus = "You are healthy.";
+    } else if (result >= 25 && result <= 29.9) {
+      bmi.value = result.toString();
+      bmiStatus = "You are overweight.";
+    } else if (result >= 30 && result <= 39.9) {
+      bmi.value = result.toString();
+      bmiStatus = "You are obese.";
+    } else {
+      bmiStatus = "You are morbidly obese.";
+    }
   }
 
-  void setData() {
+  void setDetail() {
+    bmiCalculator();
+    print(bmi.value);
     Get.toNamed(Routes.DETAIL, parameters: {
-      "age": "${ageController.text}",
-      "height": "${heightController.text}",
-      "weight": "${weightController.text}"
+      "bmi": "${bmi.value.toString().substring(0, 4)}",
+      "bmiStatus": "${bmiStatus}"
     });
   }
+
+
 }

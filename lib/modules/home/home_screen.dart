@@ -50,7 +50,7 @@ class HomeScreen extends GetView<HomeController> {
                       child: Center(
                           child: Text(
                         "Male",
-                        style: TextStyle(fontSize: 3.h, color: Colors.white),
+                        style: TextStyle(fontSize: 2.5.h, color: Colors.white),
                       )),
                     ),
                   ),
@@ -64,8 +64,8 @@ class HomeScreen extends GetView<HomeController> {
                           color: Colors.red),
                       child: Center(
                           child: Text(
-                        "Male",
-                        style: TextStyle(fontSize: 3.h, color: Colors.white),
+                        "Female",
+                        style: TextStyle(fontSize: 2.5.h, color: Colors.white),
                       )),
                     ),
                   ),
@@ -79,8 +79,8 @@ class HomeScreen extends GetView<HomeController> {
                           color: Colors.red),
                       child: Center(
                           child: Text(
-                        "Male",
-                        style: TextStyle(fontSize: 3.h, color: Colors.white),
+                        "Other",
+                        style: TextStyle(fontSize: 2.5.h, color: Colors.white),
                       )),
                     ),
                   ),
@@ -93,7 +93,10 @@ class HomeScreen extends GetView<HomeController> {
                   child: Column(
                 children: [
                   TextFormField(
-                    controller: controller.ageController,
+                    onChanged: (deger) {
+                      controller.age.value = double.parse(deger);
+                    },
+                    // controller: controller.ageController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
@@ -103,7 +106,10 @@ class HomeScreen extends GetView<HomeController> {
                     height: 5.h,
                   ),
                   TextFormField(
-                    controller: controller.heightController,
+                    onChanged: (deger) {
+                      controller.height.value = double.parse(deger);
+                    },
+                    // controller: controller.heightController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
@@ -113,7 +119,10 @@ class HomeScreen extends GetView<HomeController> {
                     height: 5.h,
                   ),
                   TextFormField(
-                    controller: controller.weightController,
+                    //  controller: controller.weightController,
+                    onChanged: (deger) {
+                      controller.weight.value = double.parse(deger);
+                    },
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
@@ -128,11 +137,18 @@ class HomeScreen extends GetView<HomeController> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    controller.setData();
+                    controller.setDetail();
                   },
                   child: Center(
                     child: Text("Hesapla"),
                   ))
+              /* ElevatedButton(
+                  onPressed: () {
+                    controller.setData();
+                  },
+                  child: Center(
+                    child: Text("Hesapla"),
+                  )) */
             ],
           ),
         ));
