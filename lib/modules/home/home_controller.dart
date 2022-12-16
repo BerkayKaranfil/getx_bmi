@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_bmi/routes/app_pages.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomeController extends GetxController {
-  
-  
   var height = 0.0.obs;
   var weight = 0.0.obs;
   var age = 0.0.obs;
@@ -16,10 +16,13 @@ class HomeController extends GetxController {
   List<String> genderList = ["Male", "Female", "Other"];
   RxInt genderIndex = 0.obs;
 
-  chanceGender(int genderType){
-    genderIndex = genderType.obs;
+  chanceGender(int genderType) {
+    genderIndex.value = genderType;
     print(genderIndex);
   }
+
+  
+
   //Gender Button//
 
   void bmiCalculator() {
@@ -50,6 +53,4 @@ class HomeController extends GetxController {
       "bmiStatus": "${bmiStatus}"
     });
   }
-
-
 }

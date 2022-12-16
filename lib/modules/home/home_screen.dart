@@ -36,7 +36,39 @@ class HomeScreen extends GetView<HomeController> {
               SizedBox(
                 height: 3.h,
               ),
-              Row(
+               Container(
+                height: 6.h,
+                child: ListView.builder(
+                  itemCount: controller.genderList.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        controller.chanceGender(index);
+                      },
+                      child: Obx(()=>  Container(
+                        margin: EdgeInsets.only(right: 7.5.w),
+                        height: 6.h,
+                        width: 25.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(3.h),
+                            color: controller.genderIndex == index
+                                ? Colors.red
+                                : Colors.grey),
+                        child: Center(
+                            child: Text(
+                          controller.genderList[index],
+                          style:
+                              TextStyle(fontSize: 2.5.h, color: controller.genderIndex == index ?
+                              Colors.white : Colors.black),
+                        )),
+                      ),)
+                      
+                    );
+                  },
+                ),
+              ), 
+              /*  Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
@@ -46,7 +78,7 @@ class HomeScreen extends GetView<HomeController> {
                       width: 25.w,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.h),
-                          color: Colors.red),
+                          color: Colors.grey),
                       child: Center(
                           child: Text(
                         "Male",
@@ -61,7 +93,7 @@ class HomeScreen extends GetView<HomeController> {
                       width: 25.w,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.h),
-                          color: Colors.red),
+                          color: Colors.grey),
                       child: Center(
                           child: Text(
                         "Female",
@@ -76,7 +108,7 @@ class HomeScreen extends GetView<HomeController> {
                       width: 25.w,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.h),
-                          color: Colors.red),
+                          color: Colors.grey),
                       child: Center(
                           child: Text(
                         "Other",
@@ -85,7 +117,7 @@ class HomeScreen extends GetView<HomeController> {
                     ),
                   ),
                 ],
-              ),
+              ), */ 
               SizedBox(
                 height: 5.h,
               ),
