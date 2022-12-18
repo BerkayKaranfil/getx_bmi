@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
@@ -82,9 +83,25 @@ class HomeScreen extends GetView<HomeController> {
                     },
                     // controller: controller.ageController,
                     decoration: InputDecoration(
+                        //  floatingLabelBehavior: FloatingLabelBehavior.auto,
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
                         hintText: "Age"),
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(3),
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    /* validator: (deger) {
+                      if (deger!.isEmpty ) {
+                        //double.parse(value!) > 0 && double.parse(value) < 120
+                        return "Age cannot be empty";
+                      } else if(double.parse(deger) < 0 || double.parse(deger) > 120) {
+                        return "Enter a valid age(0-120)";
+                      } else {
+                        return null;
+                      }
+                    }, */
                   ),
                   SizedBox(
                     height: 5.h,
@@ -98,6 +115,11 @@ class HomeScreen extends GetView<HomeController> {
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
                         hintText: "Height"),
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(3),
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
                   ),
                   SizedBox(
                     height: 5.h,
@@ -111,6 +133,11 @@ class HomeScreen extends GetView<HomeController> {
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
                         hintText: "Weight"),
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(3),
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
                   ),
                 ],
               )),
