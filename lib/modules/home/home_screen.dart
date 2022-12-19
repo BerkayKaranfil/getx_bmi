@@ -83,10 +83,12 @@ class HomeScreen extends GetView<HomeController> {
                     },
                     // controller: controller.ageController,
                     decoration: InputDecoration(
+                      labelText: "Age",
+                      labelStyle: TextStyle(fontSize: 2.5.h),
                         //  floatingLabelBehavior: FloatingLabelBehavior.auto,
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
-                        hintText: "Age"),
+                        hintText: "value  must be between (1-120)."),
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(3),
@@ -112,9 +114,11 @@ class HomeScreen extends GetView<HomeController> {
                     },
                     // controller: controller.heightController,
                     decoration: InputDecoration(
+                      labelText: "Height",
+                      labelStyle: TextStyle(fontSize: 2.5.h),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
-                        hintText: "Height"),
+                        hintText: "value  must be between (41-265)"),
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(3),
@@ -130,9 +134,11 @@ class HomeScreen extends GetView<HomeController> {
                       controller.weight.value = double.parse(deger);
                     },
                     decoration: InputDecoration(
+                      labelText: "Weight",
+                      labelStyle: TextStyle(fontSize: 2.5.h),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1.w)),
-                        hintText: "Weight"),
+                        hintText: "value  must be between (4-365)"),
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(3),
