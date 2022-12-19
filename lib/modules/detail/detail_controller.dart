@@ -21,7 +21,7 @@ class DetailController extends GetxController {
    chanceResponseColor(){
     switch (responseColor) {
       case "orange":
-        return Colors.red;
+        return Colors.orange;
       case "green":
         return Colors.green;  
       case "red":
