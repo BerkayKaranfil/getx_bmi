@@ -42,61 +42,48 @@ class HomeController extends GetxController {
     }
   }
 
-  void setDetail() {
+  /* void setDetail() {
     bmiCalculator();
     print(bmi.value);
     Get.toNamed(Routes.DETAIL, parameters: {
       "bmi": "${bmi.value.toString().substring(0, 4)}",
       "bmiStatus": "${bmiStatus}"
     });
-  }
+  } */
 
-  /* void setDetail() {
-    if (age.value <= 0 && age.value > 120) {
+  void setDetail() {
+    if (age.value <= 0 || age.value > 120) {
       Get.defaultDialog(
-        actions: <Widget>[
+          title: "!",
+          titleStyle: TextStyle(fontWeight: FontWeight.bold),
+          onConfirm: () {
+            Get.back();
+          },
+          content: Text("Age must be between 1-120"));
+    } else if (height.value <= 40 || height.value > 265) {
+      Get.defaultDialog(
+          /* actions: <Widget>[
           ElevatedButton(
             child: const Text("OK"),
             onPressed: () {
               Get.back();
             },
           ),
-        ],
-        title: "Age must be between 1-120",
-        onConfirm: () {
-          Get.back();
-        },
-      );
-    } else if (height.value <= 40 && height.value > 265) {
+        ], */
+          title: "!",
+          titleStyle: TextStyle(fontWeight: FontWeight.bold),
+          onConfirm: () {
+            Get.back();
+          },
+          content: Text("Height must be between 41-265"));
+    } else if (weight.value <= 3 || weight.value > 365) {
       Get.defaultDialog(
-        actions: <Widget>[
-          ElevatedButton(
-            child: const Text("OK"),
-            onPressed: () {
-              Get.back();
-            },
-          ),
-        ],
-        title: "Height must be between 41-265",
-        onConfirm: () {
-          Get.back();
-        },
-      );
-    } else if (weight.value <= 3 && weight.value > 365) {
-      Get.defaultDialog(
-        actions: <Widget>[
-          ElevatedButton(
-            child: const Text("OK"),
-            onPressed: () {
-              Get.back();
-            },
-          ),
-        ],
-        title: "Weight must be between 4-365",
-        onConfirm: () {
-          Get.back();
-        },
-      );
+          title: "!",
+          titleStyle: TextStyle(fontWeight: FontWeight.bold),
+          onConfirm: () {
+            Get.back();
+          },
+          content: Text("Weight must be between 4-365"));
     } else {
       bmiCalculator();
       Get.toNamed(Routes.DETAIL, parameters: {
@@ -104,14 +91,14 @@ class HomeController extends GetxController {
         "bmiStatus": "${bmiStatus}"
       });
     }
-  } */
+  }
 /////////////////////////////////////////
   /* void setDetail() {
-    if (age.value <= 0 && age.value > 120) {
+    if (age.value <= 0 || age.value > 120) {
       Get.snackbar("title", "Enter a valid age(1-120)");
-    } else if (height.value <= 40 && height.value > 265) {
+    } else if (height.value <= 40 || height.value > 265) {
       Get.snackbar("title", "Enter a valid height(41-265)", );
-    } else if (weight.value <= 3 && weight.value > 365) {
+    } else if (weight.value <= 3 || weight.value > 365) {
       Get.snackbar("title", "Enter a valid weight(4-365)");
     } else {
       bmiCalculator();
