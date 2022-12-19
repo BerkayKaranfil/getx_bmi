@@ -59,6 +59,7 @@ class HomeController extends GetxController {
           onConfirm: () {
             Get.back();
           },
+          confirmTextColor: Colors.white,
           content: Text("Age must be between 1-120"));
     } else if (height.value <= 40 || height.value > 265) {
       Get.defaultDialog(
@@ -75,6 +76,7 @@ class HomeController extends GetxController {
           onConfirm: () {
             Get.back();
           },
+          confirmTextColor: Colors.white,
           content: Text("Height must be between 41-265"));
     } else if (weight.value <= 3 || weight.value > 365) {
       Get.defaultDialog(
@@ -83,6 +85,7 @@ class HomeController extends GetxController {
           onConfirm: () {
             Get.back();
           },
+          confirmTextColor: Colors.white,
           content: Text("Weight must be between 4-365"));
     } else {
       bmiCalculator();
