@@ -38,7 +38,7 @@ class DetailScreen extends GetView<DetailController> {
                     ),
                     Text(
                       controller.bmi!,
-                      style: TextStyle(fontSize: 5.h),
+                      style: TextStyle(fontSize: 5.h,color: controller.chanceResponseColor()),
                     ),
                     SizedBox(
                       height: 5.h,
@@ -49,7 +49,7 @@ class DetailScreen extends GetView<DetailController> {
                       width: 50.w,
                       child: Text(
                         "${controller.bmiStatus}",
-                        style: TextStyle(fontSize: 3.h),
+                        style: TextStyle(fontSize: 3.h, color: controller.chanceResponseColor()),
                       ),
                     ),
                   ],

@@ -11,7 +11,7 @@ class HomeController extends GetxController {
   var bmi = "".obs;
   var bmiStatus = "";
   var result = 0.0;
-
+  var responseColor = "";
   //Gender Button//
   List<String> genderList = ["Male", "Female", "Other"];
   RxInt genderIndex = 0.obs;
@@ -28,17 +28,23 @@ class HomeController extends GetxController {
     if (result < 18.5) {
       bmi.value = result.toString();
       bmiStatus = "You are underweight.";
+      responseColor = "orange";
     } else if (result >= 18.5 && result <= 24.9) {
       bmi.value = result.toString();
       bmiStatus = "You are healthy.";
+      responseColor = "green";
     } else if (result >= 25 && result <= 29.9) {
       bmi.value = result.toString();
       bmiStatus = "You are overweight.";
+      responseColor = "red";
     } else if (result >= 30 && result <= 39.9) {
       bmi.value = result.toString();
       bmiStatus = "You are obese.";
+      responseColor = "red";
     } else {
+      bmi.value = result.toString();
       bmiStatus = "You are morbidly obese.";
+      responseColor = "red";
     }
   }
 
@@ -91,7 +97,8 @@ class HomeController extends GetxController {
       bmiCalculator();
       Get.toNamed(Routes.DETAIL, parameters: {
         "bmi": "${bmi.value.toString().substring(0, 4)}",
-        "bmiStatus": "${bmiStatus}"
+        "bmiStatus": "${bmiStatus}",
+        "responseColor": "${responseColor}"
       });
     }
   }
