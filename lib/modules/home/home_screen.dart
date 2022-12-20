@@ -42,6 +42,7 @@ class HomeScreen extends GetView<HomeController> {
                 child: ListView.builder(
                   itemCount: controller.genderList.length,
                   scrollDirection: Axis.horizontal,
+                  physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return GestureDetector(
                         onTap: () {
