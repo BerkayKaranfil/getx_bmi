@@ -12,6 +12,7 @@ class HomeController extends GetxController {
   var bmiStatus = "";
   var result = 0.0;
   var responseColor = "";
+  Color responseColorExtra = Colors.white; // Bunu kullanarak switch case kullanmadan yapılabilir. (Bu projede kullanılmıyor.)
   //Gender Button//
   List<String> genderList = ["Male", "Female", "Other"];
   RxInt genderIndex = 0.obs;
@@ -29,6 +30,7 @@ class HomeController extends GetxController {
       bmi.value = result.toString();
       bmiStatus = "You are underweight.";
       responseColor = "orange";
+      // Buraya responseColor yerine responseColorExtra = Colors.orange yazabilirdik bu sayede switch case kullanmamıza gerek kalmazdı.
     } else if (result >= 18.5 && result <= 24.9) {
       bmi.value = result.toString();
       bmiStatus = "You are healthy.";
