@@ -7,7 +7,7 @@ class SplashController extends GetxController{
   void onReady() async{
     super.onReady();
     print("splash screen açıldı");
-    await Future.delayed(Duration(milliseconds: 3000));
+    await Future.delayed(Duration(milliseconds: 500));
     Get.toNamed(Routes.HOME);
   }
 }
