@@ -23,7 +23,7 @@ class HomeScreen extends GetView<HomeController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+             /*  Text(
                 "Let's calculate \nyour current BMI",
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40),
               ),
@@ -70,7 +70,7 @@ class HomeScreen extends GetView<HomeController> {
                           ),
                         ));
                   },
-                ),),
+                ),), */
                 Text(
                   "Let's calculate \nyour current BMI",
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40),
