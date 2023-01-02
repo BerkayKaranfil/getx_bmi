@@ -18,16 +18,59 @@ class HomeScreen extends GetView<HomeController> {
           toolbarHeight: 0,
           elevation: 0,
         ),
-        body: SingleChildScrollView(
-          reverse: true,
-          child: Padding(
-            padding: EdgeInsets.only(right: 5.w, left: 5.w,),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 8.h,
-                ),
+        body: Padding(
+          padding: EdgeInsets.only(right: 5.w, left: 5.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Let's calculate \nyour current BMI",
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              Text(
+                "You can find out whether you are overweight, underweight or ideal weight.",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+              ),
+              SizedBox(
+                height: 3.h,
+              ),
+              Container(
+                height: 6.h,
+                child: ListView.builder(
+                  itemCount: controller.genderList.length,
+                  scrollDirection: Axis.horizontal,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                        onTap: () {
+                          controller.chanceGender(index);
+                        },
+                        child: Obx(
+                          () => Container(
+                            margin: EdgeInsets.only(right: 7.5.w),
+                            height: 6.h,
+                            width: 25.w,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(3.h),
+                                color: controller.genderIndex == index
+                                    ? Colors.red
+                                    : Colors.grey),
+                            child: Center(
+                                child: Text(
+                              controller.genderList[index],
+                              style: TextStyle(
+                                  fontSize: 2.5.h,
+                                  color: controller.genderIndex == index
+                                      ? Colors.white
+                                      : Colors.black),
+                            )),
+                          ),
+                        ));
+                  },
+                ),),
                 Text(
                   "Let's calculate \nyour current BMI",
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40),
@@ -175,6 +218,6 @@ class HomeScreen extends GetView<HomeController> {
               ],
             ),
           ),
-        ));
+        );
   }
 }

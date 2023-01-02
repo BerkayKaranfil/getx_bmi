@@ -17,7 +17,7 @@ class DetailScreen extends GetView<DetailController> {
       child: Column(
         children: [
           Card(
-            elevation: 40,
+            elevation: 20,
             color: Colors.white,
             margin: EdgeInsets.only(bottom: 35.h),
             child: Padding(
@@ -38,18 +38,23 @@ class DetailScreen extends GetView<DetailController> {
                     ),
                     Text(
                       controller.bmi!,
-                      style: TextStyle(fontSize: 5.h,color: controller.chanceResponseColor()),
+                      style: TextStyle(
+                          fontSize: 5.h,
+                          color: controller.chanceResponseColor()),
                     ),
                     SizedBox(
                       height: 5.h,
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 5.h),
-                      height: 3.5.h,
-                      width: 50.w,
-                      child: Text(
-                        "${controller.bmiStatus}",
-                        style: TextStyle(fontSize: 3.h, color: controller.chanceResponseColor()),
+                      height: 3.h,
+                      width: 70.w,
+                      child: FittedBox(
+                        child: Text(
+                          "${controller.bmiStatus}",
+                          style: TextStyle(
+                              fontSize: 2.5.h,
+                              color: controller.chanceResponseColor()),
+                        ),
                       ),
                     ),
                   ],
@@ -61,7 +66,7 @@ class DetailScreen extends GetView<DetailController> {
               onPressed: () {
                 Get.back();
               },
-              child: Text("Yeniden Hesapla"))
+              child: Text("Recalculate"))
         ],
       ),
     )
